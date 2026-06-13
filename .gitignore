@@ -6,6 +6,7 @@
 !/conf/dist
 /modules/*
 !/modules/*.md
+!/modules/mod-playerbots
 !/modules/*.sh
 !/modules/CMakeLists.txt
 !/modules/*.h
