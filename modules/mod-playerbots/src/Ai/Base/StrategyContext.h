@@ -28,6 +28,7 @@
 #include "KiteStrategy.h"
 #include "LfgStrategy.h"
 #include "LootNonCombatStrategy.h"
+#include "LowestHpStrategy.h"
 #include "MaintenanceStrategy.h"
 #include "MarkRtiStrategy.h"
 #include "MeleeCombatStrategy.h"
@@ -129,6 +130,9 @@ public:
         creators["master fishing"] = &StrategyContext::master_fishing;
         creators["wait for attack"] = &StrategyContext::wait_for_attack;
         creators["focus heal targets"] = &StrategyContext::focus_heal_targets;
+
+        // Baggles Custom Strategies
+        creators["lowest"] = &StrategyContext::lowest;
     }
 
 private:
@@ -203,6 +207,7 @@ private:
     static Strategy* master_fishing(PlayerbotAI* botAI) { return new MasterFishingStrategy(botAI); }
     static Strategy* wait_for_attack(PlayerbotAI* botAI) { return new WaitForAttackStrategy(botAI); }
     static Strategy* focus_heal_targets(PlayerbotAI* botAI) { return new FocusHealTargetsStrategy(botAI); }
+    static Strategy* lowest(PlayerbotAI* botAI) { return new LowestHpStrategy(botAI); }
 };
 
 class MovementStrategyContext : public NamedObjectContext<Strategy>
